@@ -1,12 +1,15 @@
-/* TEAM */
-Your title: Your name.
-Site: email, link to a contact form, etc.
-Twitter: your Twitter username.
-Location: City, Country.
+# humanstxt.org/
+# The humans responsible & technology colophon
 
-[...]
+# TEAM
 
-/* THANKS */
-Name: name or url
+    <name> -- <role> -- <twitter>
 
-[...]
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css

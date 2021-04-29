@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -7,18 +6,20 @@ const HtmlReplaceWebpackPlugin = require("html-replace-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const MinifyPlugin = require("babel-minify-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== "production";
 
 const CONFIG = {
-  entry: "./src/js/app.js",
+  entry: "./src/js/main.js",
   mode: process.env.NODE_ENV,
   devtool: "cheap-module-source-map",
   output: {
     path: path.resolve(__dirname, "./build"),
-    filename: "app.js",
+    filename: "main.js",
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
@@ -71,12 +72,7 @@ const CONFIG = {
       {
         test: /\.(css|scss)$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            // options: {
-            //   hmr: devMode,
-            // },
-          },
+          { loader: MiniCssExtractPlugin.loader },
           {
             loader: "css-loader",
             options: {
@@ -86,9 +82,7 @@ const CONFIG = {
           },
           {
             loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-            },
+            options: { sourceMap: true },
           },
           {
             loader: "sass-loader",
@@ -105,6 +99,16 @@ const CONFIG = {
           },
         ],
       },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
     ],
   },
   devServer: {
