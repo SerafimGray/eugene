@@ -1,11 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const HtmlReplaceWebpackPlugin = require("html-replace-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const MinifyPlugin = require("babel-minify-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== "production";
@@ -15,49 +12,41 @@ const CONFIG = {
   mode: process.env.NODE_ENV,
   devtool: "cheap-module-source-map",
   output: {
-    path: path.resolve(__dirname, "./build"),
+    path: path.resolve(__dirname, "./docs"),
     filename: "main.js",
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      filename: "./index.html",
       minify: {
         collapseWhitespace: true,
         minifyCSS: true,
         removeComments: true,
       },
     }),
-    new HtmlReplaceWebpackPlugin([
-      {
-        pattern:
-          '<script type="text/javascript" src="../build/app.js"></script>',
-        replacement: "",
-      },
-      {
-        pattern: '<link rel="stylesheet" href="./css/app.css">',
-        replacement: "",
-      },
-    ]),
     new MiniCssExtractPlugin({
       filename: devMode ? "[name].css" : "[name].[hash].css",
       chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
     }),
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } },
-    }),
-    new CopyWebpackPlugin([
+    new CopyWebpackPlugin(
       {
-        from: "src/images/",
-        to: "images/",
-      },
-      {
-        from: "src/*.txt",
-        to: "./[name].[ext]",
-        toType: "template",
-      },
-    ]),
+        patterns: [
+          {
+            from: "src/images/",
+            to: "images/",
+          },
+          {
+            from: "src/fonts/",
+            to: "fonts/",
+          },
+          {
+            from: "src/video/",
+            to: "video/",
+          }
+        ]
+      }
+    ),
     new ImageminPlugin({
       disable: devMode,
       test: /\.(jpe?g|png|gif|svg)$/i,
@@ -70,44 +59,29 @@ const CONFIG = {
   module: {
     rules: [
       {
-        test: /\.(css|scss)$/i,
+        test: /\.(css)$/i,
         use: [
-          { loader: MiniCssExtractPlugin.loader },
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              importLoaders: 2,
+              url: false,
             },
           },
           {
             loader: "postcss-loader",
-            options: { sourceMap: true },
-          },
-          {
-            loader: "sass-loader",
-            options: { sourceMap: true },
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {},
-          },
-        ],
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['@babel/preset-env']
+            options: { 
+              postcssOptions: {
+                plugins: {
+                  'postcss-preset-env': {},
+                  'cssnano': {}
+                }
+              },
+              sourceMap: true 
+            },
           }
-        }
+        ],
       }
     ],
   },
@@ -123,13 +97,12 @@ const CONFIG = {
 
 if (!devMode) {
   CONFIG.output.publicPath = "./";
-  CONFIG.output.filename = "js/app.js";
-  CONFIG.plugins.push(new MinifyPlugin());
+  CONFIG.output.filename = "js/main.js";
   CONFIG.module.rules.push({
     test: [/\.js$/],
     exclude: [/node_modules/],
     loader: "babel-loader",
-    options: { presets: ["env"] },
+    options: { presets: ["@babel/preset-env"] },
   });
 }
 
