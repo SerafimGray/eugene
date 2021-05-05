@@ -43,7 +43,11 @@ const CONFIG = {
           {
             from: "src/video/",
             to: "video/",
-          }
+          },
+          {
+            from: "src/assets/",
+            to: "",
+          },
         ]
       }
     ),
