@@ -123,8 +123,16 @@ html, body {
   overflow-x: hidden;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+
 body {
   background-color: #002686;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 /* ==========================================================================
@@ -510,9 +518,11 @@ main {
   grid-template-areas: 
     "c c . . . ."
     ". d d . . ."
-    ". d d hl ab .";
-  grid-template-columns: 1fr auto auto 2fr auto 1fr;
-  grid-template-rows: var(--bristle-height) var(--main-tr) auto;
+    ". d d hl ab ."
+    ". p p . cr .";
+  grid-template-columns: 1fr fit-content(25%) fit-content(25%) var(--padding-h) auto 1fr;
+  grid-template-rows: var(--bristle-height) var(--main-tr) auto auto;
+  margin-bottom: -10vh;
   padding: 0 var(--padding-h);
   transform: translateY(
     calc(-1 * var(--main-tr) - var(--bristle-height))
@@ -525,9 +535,11 @@ main {
       "c ."
       "d d"
       "hl hl"
-      "ab ab";
+      "ab ab"
+      "cr cr"
+      "p p";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: var(--bristle-height) auto calc(var(--padding-v) * 2) auto;
+    grid-template-rows: var(--bristle-height) auto calc(var(--padding-v) * 2) auto auto auto;
   }
 }
 
@@ -569,6 +581,7 @@ main {
     "l img img r"
     "lb lb rb rb";
   grid-template-rows: auto 1fr auto;
+  justify-self: center;
 }
 
 #diploma .horizontal {
@@ -659,6 +672,7 @@ main .horizontal.center.anim {
     "l ar br"
     "b b b";
   grid-template-rows: var(--wire-width) 1fr 1fr var(--wire-width);
+  justify-self: left;
   padding-top: calc(var(--padding-v) * 2);
 }
 
@@ -695,15 +709,14 @@ main .horizontal.center.anim {
 #about.anim .vertical.left {
   animation-play-state: running;
 }
-
-#about article {
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  grid-area: ar;
+article {
   max-width: 600px;
   padding: 16px;
   text-shadow: 1px 1px 0 black;
+}
+
+#about article {
+  grid-area: ar;
 }
 
 #about .vertical.right {
@@ -739,8 +752,9 @@ main .horizontal.center.anim {
       "b ar ar t"
       "b br tr t";
     grid-template-columns: var(--wire-width) 1fr 1fr var(--wire-width);
-    padding: 0;
     grid-template-rows: var(--wire-width) 1fr var(--wire-width);
+    justify-self: center;
+    padding: 0;
   }
 
   #about .horizontal {
@@ -778,152 +792,102 @@ main .horizontal.center.anim {
   }
 }
 
-/* ================================= /about ================================= */
+/* ================================= carousel =============================== */
 
-#gallery {
-  grid-area: gallery;
-  justify-self: right;
-  height: 100vh;
+#carousel {
+  align-self: start;
+  display: flex;
+  justify-content: center;
+  grid-area: cr;
   position: relative;
 }
 
-@media (orientation: landscape) {
-  #gallery {
-    width: calc(100vh * 1700 / 2338 + var(--dipl-pad) * 9);
-  }
+#carousel,
+#prices {
+  margin-top: calc(var(--padding-v) * 2);
 }
 
-@media (orientation: portrait) {
-  #gallery {
-    width: 100%;
-  }
-}
-
-@media (max-width: 1024px) and (orientation: portrait) {
-  #gallery {
-    transform: translateX(calc(var(--dipl-pad) * -9)) translateY(-10vh);
-  }
-}
-
-@keyframes img {
-  to {
-    box-shadow: 0 0 10px var(--neon-color);
-  }
-}
-
-#gallery img {
-  animation-delay: var(--header-dur);
-  animation-duration: 100ms;
-  animation-fill-mode: forwards;
-  animation-name: img;
-  border: 1px solid black;
-  max-height: 100vh;
-  max-width: 100vw;
+#carousel input {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  opacity: 0;
   position: absolute;
-  transform: perspective(100vw) rotateY(-10deg);
-  transition: all 300ms;
-  transition-delay: 200ms;
-}
-
-#gallery img:nth-of-type(1) {
-  z-index: 10;
-}
-
-#gallery img:nth-of-type(2) {
-  left: var(--dipl-pad);
-  z-index: 9;
-}
-
-#gallery img:nth-of-type(3) {
-  left: calc(var(--dipl-pad) * 2);
-  z-index: 8;
-}
-
-#gallery img:nth-of-type(4) {
-  left: calc(var(--dipl-pad) * 3);
-  z-index: 7;
-}
-
-#gallery img:nth-of-type(5) {
-  left: calc(var(--dipl-pad) * 4);
-  z-index: 6;
-}
-
-#gallery img:nth-of-type(6) {
-  left: calc(var(--dipl-pad) * 5);
-  z-index: 5;
-}
-
-#gallery img:nth-of-type(7) {
-  left: calc(var(--dipl-pad) * 6);
+  top: 0;
+  width: 50%;
   z-index: 4;
 }
 
-#gallery img:nth-of-type(8) {
-  left: calc(var(--dipl-pad) * 7);
+#carousel input:checked {
+  display: none;
+}
+
+#carousel input:checked ~ input {
+  display: block;
+  left: unset;
+  right: 0;
   z-index: 3;
 }
 
-#gallery img:nth-of-type(9) {
-  left: calc(var(--dipl-pad) * 8);
+#carousel input:checked + img + input {
+  z-index: 4;
+}
+
+#carousel img {
+  box-shadow: 8px 4px 8px rgb(0 0 0 / 40%),
+    -8px 4px 8px rgb(0 0 0 / 40%);
+  filter: brightness(80%);
+  left: 0;
+  max-width: 75%;
+  position: absolute;
+  transform: translateX(-12.5%) scale(0.75);
+  transition: all 200ms;
+  transform-origin: center;
+  z-index: 3;
+}
+
+#carousel input:checked ~ img {
+  left: unset;
+  position: absolute;
+  right: 0;
+  transform: translateX(12.5%) scale(0.75);
+  transform-origin: center;
   z-index: 2;
 }
 
-#gallery img:nth-of-type(10) {
-  left: calc(var(--dipl-pad) * 9);
-  z-index: 1;
+#carousel input:checked + img {
+  box-shadow: 10px 5px 10px rgb(0 0 0 / 50%),
+    -10px 5px 10px rgb(0 0 0 / 50%);
+  filter: brightness(100%);
+  position: relative;
+  transform: translateX(0) scale(1);
+  z-index: 5;
 }
 
-#gallery img:hover {
-  box-shadow: 0 0 25px black;
-  z-index: 11;
-  transform: rotateY(0);
+#carousel input:checked + img + input + img {
+  z-index: 3;
 }
 
-@media (max-width: 1024px) {
-  #gallery img:nth-of-type(1):hover {
-    transform: translateX(calc(var(--dipl-pad) * 9));
-  }
+/* ================================= prices ================================= */
 
-  #gallery img:nth-of-type(2):hover {
-    transform: translateX(calc(var(--dipl-pad) * 8));
-  }
-
-  #gallery img:nth-of-type(3):hover {
-    transform: translateX(calc(var(--dipl-pad) * 7));
-  }
-
-  #gallery img:nth-of-type(4):hover {
-    transform: translateX(calc(var(--dipl-pad) * 6));
-  }
-
-  #gallery img:nth-of-type(5):hover {
-    transform: translateX(calc(var(--dipl-pad) * 5));
-  }
-
-  #gallery img:nth-of-type(6):hover {
-    transform: translateX(calc(var(--dipl-pad) * 4));
-  }
-
-  #gallery img:nth-of-type(7):hover {
-    transform: translateX(calc(var(--dipl-pad) * 3));
-  }
-
-  #gallery img:nth-of-type(8):hover {
-    transform: translateX(calc(var(--dipl-pad) * 2));
-  }
-
-  #gallery img:nth-of-type(9):hover {
-    transform: translateX(var(--dipl-pad));
-  }
+#prices {
+  align-self: start;
+  border: var(--wire-width) solid var(--wire-color);
+  box-shadow: 0 0 5px var(--neon-color), 
+    inset 0 0 5px var(--neon-color);
+  grid-area: p;
+  justify-self: center;
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url(./fonts/Roboto-Regular.ttf);
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  height: 100px;
+  padding: var(--padding-h);
 }
-
-
 
 /* ==========================================================================
    Helper classes

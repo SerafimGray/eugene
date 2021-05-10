@@ -1,8 +1,8 @@
-import { throttle } from 'lodash';
+// import { throttle } from 'lodash';
 import "../css/normalize.css";
 import "../css/_main.css";
 
-onScroll()
+/* onScroll()
 document.addEventListener('scroll', throttle(onScroll, 200))
 
 function onScroll() {
@@ -21,4 +21,4 @@ function elementInViewport(element) {
 
 function animate(elements) {
   elements.forEach(element => element.classList.add('anim'))
-}
+} */
