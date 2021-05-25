@@ -32,10 +32,10 @@ const CONFIG = {
     new CopyWebpackPlugin(
       {
         patterns: [
-          {
+          /*{
             from: "src/images/",
             to: "images/",
-          },
+          },*/
           {
             from: "src/fonts/",
             to: "fonts/",
@@ -86,6 +86,18 @@ const CONFIG = {
             },
           }
         ],
+      },
+      {
+        test: /\.(jpe?g|png|webp)$/i,
+        use: {
+          loader: 'responsive-loader',
+          options: {
+            adapter: require('responsive-loader/sharp'),
+            name: '[name]-[width].[ext]',
+            outputPath: 'images',
+            sizes: [320, 480, 640]
+          }
+        }
       }
     ],
   },
