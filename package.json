@@ -29,8 +29,10 @@
     "responsive-loader": "^2.3.0",
     "sharp": "^0.28.1",
     "webpack": "^5.36.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-middleware": "^3.7.3",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
     "lodash": "^4.17.21"

@@ -32,10 +32,10 @@ const CONFIG = {
     new CopyWebpackPlugin(
       {
         patterns: [
-          /*{
+          {
             from: "src/images/",
             to: "images/",
-          },*/
+          },
           {
             from: "src/fonts/",
             to: "fonts/",
