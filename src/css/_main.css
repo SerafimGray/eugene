@@ -99,6 +99,7 @@ textarea {
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Exo 2';
   src: url(./fonts/Exo2-Regular.ttf);
 }
@@ -222,6 +223,7 @@ a {
   align-self: center;
   grid-area: img;
   height: 1em;
+  width: auto;
 }
 
 .white-icon {
@@ -425,6 +427,7 @@ header .wire {
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'Train One';
   src: url(./fonts/TrainOne-Regular.ttf);
 }
@@ -443,7 +446,7 @@ h1 {
 }
 
 h1>a, h1>a:visited, h1>a:active {
-  color: var(--neon-color);
+  color: var(--text-color);
 }
 
 @keyframes neon {
@@ -871,6 +874,7 @@ main .top.right.wire {
 
 #carousel .arrow {
   border-radius: 50%;
+  height: auto;
   left: 0;
   position: absolute;
   top: 50%;
