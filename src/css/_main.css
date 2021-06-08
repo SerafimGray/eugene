@@ -443,6 +443,7 @@ h1 {
   line-height: 2em;
   margin: 0;
   opacity: 0;
+  word-break: break-word;
 }
 
 h1, h2 {

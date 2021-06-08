@@ -26,23 +26,15 @@ const CONFIG = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
+      filename: devMode ? "[name].css" : "[name].[contenthash].css",
+      chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
     }),
     new CopyWebpackPlugin(
       {
         patterns: [
           {
-            from: "src/images/",
-            to: "images/",
-          },
-          {
             from: "src/fonts/",
             to: "fonts/",
-          },
-          {
-            from: "src/video/",
-            to: "video/",
           },
           {
             from: "src/assets/",
@@ -88,14 +80,46 @@ const CONFIG = {
         ],
       },
       {
-        test: /\.(jpe?g|png|webp)$/i,
+        test: /\.(mp4|webm)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: devMode ? "[name].[ext]" : "[name].[contenthash].[ext]",
+            outputPath: 'video',
+          }
+        }
+      },
+      {
+        test: /\.(jpg)$/i,
+        exclude: [path.resolve(__dirname, "./src/images/diplomas")],
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: devMode ? '[name].[ext]' : '[name].[contenthash].[ext]',
+            outputPath: 'images',
+          }
+        }
+      },
+      {
+        test: /\.(svg|webp)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: devMode ? '[name].[ext]' : '[name].[contenthash].[ext]',
+            outputPath: 'images/icons',
+          }
+        }
+      },
+      {
+        test: /\.(jpe?g|png)$/i,
+        include: [path.resolve(__dirname, "./src/images/diplomas")],
         use: {
           loader: 'responsive-loader',
           options: {
             adapter: require('responsive-loader/sharp'),
-            name: '[name]-[width].[ext]',
-            outputPath: 'images',
-            sizes: [320, 480, 640]
+            name: devMode ? '[name]-[width].[ext]' : '[name]-[width].[contenthash].[ext]',
+            outputPath: 'images/diplomas',
+            sizes: [320, 480, 640, 785]
           }
         }
       }
@@ -113,7 +137,7 @@ const CONFIG = {
 
 if (!devMode) {
   CONFIG.output.publicPath = "./";
-  CONFIG.output.filename = "js/main.js";
+  CONFIG.output.filename = "js/main.[contenthash].js";
   CONFIG.module.rules.push({
     test: [/\.js$/],
     exclude: [/node_modules/],
