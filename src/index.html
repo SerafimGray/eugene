@@ -21,6 +21,20 @@
   <link rel="preload" href="<%= require('./fonts/Exo2-Regular.ttf').default %>" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="<%= require('./fonts/TrainOne-Regular.ttf').default %>" as="font" type="font/ttf"
     crossorigin>
+
+  <style>
+    @font-face {
+      font-display: swap;
+      font-family: 'Exo 2';
+      src: url("<%= require('./fonts/Exo2-Regular.ttf').default %>");
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: 'Train One';
+      src: url("<%= require('./fonts/TrainOne-Regular.ttf').default %>");
+    }
+  </style>
 </head>
 
 <body>

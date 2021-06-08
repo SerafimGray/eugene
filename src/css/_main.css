@@ -99,12 +99,6 @@ textarea {
   --text-color: white;
 }
 
-@font-face {
-  font-display: swap;
-  font-family: 'Exo 2';
-  src: url(./fonts/Exo2-Regular.ttf);
-}
-
 body {
   color: var(--text-color);
   font-family: 'Exo 2', cursive;
@@ -428,12 +422,6 @@ header .top-right.wire {
   to {
     opacity: 1;
   }
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Train One';
-  src: url(./fonts/TrainOne-Regular.ttf);
 }
 
 h1 {
