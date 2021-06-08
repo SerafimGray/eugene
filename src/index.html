@@ -24,7 +24,7 @@
 
 <body>
 
-  <header>
+  <header class="border-bottom">
     <div id="video-container">
       <video autoplay id="background-video" loop muted playsinline poster="images/poster.jpg" preload="auto">
         <source src="video/v9.webm" type="video/webm" />
@@ -32,7 +32,7 @@
       </video>
     </div>
 
-    <nav id="top-menu">
+    <nav class="border-bottom" id="top-menu">
       <input aria-hidden="true" type="checkbox" id="menu-switcher">
       <div aria-hidden="true" id="menu-button">
         <div class="top left line"></div>
@@ -45,63 +45,65 @@
       <ul id="top-menu_list">
         <li class="top-menu_item">
           <a class="link" href="#services">
-            <img alt="значок соединения" class="icon white-icon" height="24" loading="lazy" src="images/connection.svg"
-              width="24" />
+            <img alt="значок соединения" class="link-icon white-icon" height="24" loading="lazy"
+              src="images/connection.svg" width="24" />
 
-            <span>Услуги</span>
+            <span class="link-text">Услуги</span>
           </a>
         </li>
 
         <li class="top-menu_item">
           <a class="link" href="#about">
-            <img alt="значок портрета" class="icon white-icon" height="24" loading="lazy" src="images/account.svg"
+            <img alt="значок портрета" class="link-icon white-icon" height="24" loading="lazy" src="images/account.svg"
               width="24" />
 
-            <span>Обо мне</span>
+            <span class="link-text">Обо мне</span>
           </a>
         </li>
 
         <li class="top-menu_item">
           <a class="link" href="#contacts">
-            <img alt="визитная карточка" class="icon white-icon" height="24" loading="lazy"
+            <img alt="визитная карточка" class="link-icon white-icon" height="24" loading="lazy"
               src="images/card-account-phone.svg" width="24" />
 
-            <span>Контакты</span>
+            <span class="link-text">Контакты</span>
           </a>
         </li>
       </ul>
     </nav>
 
-    <div class="top right wire"></div>
+    <div class="top-right wire"></div>
 
     <h1>
-      <a href="#top-menu">Название</a>
+      <a class="header-link" href="#top-menu">Название</a>
     </h1>
 
-    <div class="top center wire"></div>
+    <div class="left center wire"></div>
 
     <a class="link phone-link" href="tel:+375297890285" id="phone-link-1">
-      <img alt="логотип МТС" class="icon white-icon" height="32" loading="lazy" src="images/MTS_logo.svg" width="128" />
+      <img alt="логотип МТС" class="link-icon white-icon" height="32" loading="lazy" src="images/MTS_logo.svg"
+        width="128" />
 
-      <span>+375 29 789 02 85</span>
+      <span class="link-text">+375 29 789 02 85</span>
     </a>
 
-    <div class="bottom center wire"></div>
+    <div class="right center wire"></div>
 
     <a class="link phone-link" href="tel:+375297899098" id="phone-link-2">
-      <img alt="логотип A1" class="icon white-icon" height="24" loading="lazy" src="images/A1_logo.webp" width="24" />
+      <img alt="логотип A1" class="link-icon white-icon" height="24" loading="lazy" src="images/A1_logo.webp"
+        width="24" />
 
-      <span>+375 29 789 90 98</span>
+      <span class="link-text">+375 29 789 90 98</span>
     </a>
 
-    <div class="bottom left wire"></div>
+    <div class="bottom-left wire"></div>
   </header>
 
   <main>
-    <article id="services">
-      <h2 class="parallax to-anim">Услуги</h2>
+    <article class="border-bottom" id="services">
+      <h2 class="opacity parallax sec-header to-anim">Услуги</h2>
 
-      <section class="parallax to-anim">
+      <section class="parallax to-anim opacity">
         <p>Затеяли <strong>ремонт в квартире</strong>, а электрик пришел с бельевой веревкой и рассказывает, что
           перенесет Вашу
           <strong>оптическую розетку</strong> самостоятельно?
@@ -114,10 +116,10 @@
       <img alt="человек в ярости переворачивает стол" class="to-anim" height="361" src="images/table-meme.jpg"
         width="400" />
 
-      <div class="left center wire"></div>
-      <div class="right center wire"></div>
+      <div class="left-center wire"></div>
+      <div class="right-center wire"></div>
 
-      <section class="parallax to-anim">
+      <section class="parallax to-anim opacity">
         <p>В службе технической поддержки Вам говорят: «Перезагрузите модем… Хммм… Не помогло… Мы придем к Вам на
           рассвете третьего дня после первой четверти кровавой луны - будьте дома и не ведите детей в школу, не
           выходите
@@ -127,15 +129,15 @@
 
       <img alt="человек пожимает плечами" class="to-anim" height="400" src="images/shrink-meme.jpg" width="400" />
 
-      <div class="bottom left wire"></div>
-      <div class="bottom right wire"></div>
+      <div class="bottom-left wire"></div>
+      <div class="bottom-right wire"></div>
 
-      <p class="appeal to-anim">Во избежание возникновения подобных не вымышленных ситуаций
-        <i>обращайтесь к нам!</i>
+      <p class="appeal to-anim opacity">Во избежание возникновения подобных не вымышленных ситуаций <i>обращайтесь к
+          нам!</i>
       </p>
 
-      <div class="top left wire"></div>
-      <div class="top right wire"></div>
+      <div class="top-left wire"></div>
+      <div class="top-right wire"></div>
 
       <section class="parallax to-anim">
         <h3>Мы осуществляем:</h3>
@@ -178,76 +180,80 @@
       </picture>
     </article>
 
-    <article id="about">
-      <h2 class="parallax to-anim">Немного о себе</h2>
+    <article class="border-bottom" id="about">
+      <h2 class="parallax sec-header to-anim">Немного о себе</h2>
 
-      <p class="parallax to-anim">Опыт работы в отрасли – 10 лет. Участие и призовые места в множестве конкурсов и
+      <p class="about-text parallax to-anim">Опыт работы в отрасли – 10 лет. Участие и призовые места в множестве
+        конкурсов и
         чемпионатах профессионального
         мастерства «Монтаж и эксплуатация ВОЛС» на областном, республиканском и международном уровнях.</p>
 
       <div id="carousel">
-        <input aria-hidden="true" checked loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" checked class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/002-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/002-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/002-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/002-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/002-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/002-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Диплом Третяка Евгения за третье место в конкурсе "Лучшая бригада Белтелеком"' class="to-anim"
-            height="1080" loading="lazy" src="images/002.jpg" srcset="images/002.jpg 785w" width="785">
+          <img alt='Диплом Третяка Евгения за третье место в конкурсе "Лучшая бригада Белтелеком"'
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/002.jpg" srcset="images/002.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/003-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/003-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/003-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/003-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/003-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/003-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Диплом Третяка Евгения за второе место второго открытого евразийского чемпионата' class="to-anim"
-            height="1080" loading="lazy" src="images/003.jpg" srcset="images/003.jpg 785w" width="785">
+          <img alt='Диплом Третяка Евгения за второе место второго открытого евразийского чемпионата'
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/003.jpg" srcset="images/003.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/004-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/004-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/004-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/004-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/004-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/004-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Диплом конкурсанта Третяка Евгения шестого национального чемпионата' class="to-anim" height="1080"
-            loading="lazy" src="images/004.jpg" srcset="images/004.jpg 785w" width="785">
+          <img alt='Диплом конкурсанта Третяка Евгения шестого национального чемпионата' class="carousel-img to-anim"
+            height="1080" loading="lazy" src="images/004.jpg" srcset="images/004.jpg 785w" width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/005-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/005-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/005-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/005-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/005-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/005-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Награда Третяка Евгения за многолетний добросовестный труд' class="to-anim" height="1080"
-            loading="lazy" src="images/005.jpg" srcset="images/005.jpg 785w" width="785">
+          <img alt='Награда Третяка Евгения за многолетний добросовестный труд' class="carousel-img to-anim"
+            height="1080" loading="lazy" src="images/005.jpg" srcset="images/005.jpg 785w" width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/006-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/006-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/006-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/006-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/006-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/006-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Сертификат участника Третяка Евгения четвертого национального чемпионата' class="to-anim"
-            height="1080" loading="lazy" src="images/006.jpg" srcset="images/006.jpg 785w" width="785">
+          <img alt='Сертификат участника Третяка Евгения четвертого национального чемпионата'
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/006.jpg" srcset="images/006.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/007-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/007-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/007-640.jpg 640w" media="(max-width: 640px)">
@@ -255,23 +261,25 @@
           <source srcset="images/007-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/007-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
           <img alt='Диплом Третяка Евгения за победу в республиканском конкурсе "Лучшая бригада Белтелеком"'
-            class="to-anim" height="1080" loading="lazy" src="images/007.jpg" srcset="images/007.jpg 785w" width="785">
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/007.jpg" srcset="images/007.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/008-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/008-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/008-640.jpg 640w" media="(max-width: 640px)">
           <source srcset="images/008-320.jpg 320w" media="(max-width: calc(320px * 2 + 82px))">
           <source srcset="images/008-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/008-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
-          <img alt='Диплом Третяка Евгения за победу в областном конкурсе "Лучшая бригада Белтелеком"' class="to-anim"
-            height="1080" loading="lazy" src="images/008.jpg" srcset="images/008.jpg 785w" width="785">
+          <img alt='Диплом Третяка Евгения за победу в областном конкурсе "Лучшая бригада Белтелеком"'
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/008.jpg" srcset="images/008.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/009-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/009-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/009-640.jpg 640w" media="(max-width: 640px)">
@@ -279,11 +287,12 @@
           <source srcset="images/009-480.jpg 480w" media="(max-width: calc(480px * 2 + 82px))">
           <source srcset="images/009-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
           <img alt='Диплом Третяка Евгения за третье место в республиканском конкурсе профессионального мастерства'
-            class="to-anim" height="1080" loading="lazy" src="images/009.jpg" srcset="images/009.jpg 785w" width="785">
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/009.jpg" srcset="images/009.jpg 785w"
+            width="785">
         </picture>
 
-        <input aria-hidden="true" loading="lazy" name="carousel" type="radio">
-        <picture>
+        <input aria-hidden="true" class="carousel-radio" loading="lazy" name="carousel" type="radio">
+        <picture class="carousel-picture">
           <source srcset="images/010-320.jpg 320w" media="(max-width: 352px)">
           <source srcset="images/010-480.jpg 480w" media="(max-width: 512px)">
           <source srcset="images/010-640.jpg 640w" media="(max-width: 640px)">
@@ -292,7 +301,8 @@
           <source srcset="images/010-640.jpg 640w" media="(max-width: calc(640px * 2 + 82px))">
           <img
             alt='Диплом Третяка Евгения за первое место в конкурсе "Монтаж и эксплуатация волоконно-оптических линий связи"'
-            class="to-anim" height="1080" loading="lazy" src="images/010.jpg" srcset="images/010.jpg 785w" width="785">
+            class="carousel-img to-anim" height="1080" loading="lazy" src="images/010.jpg" srcset="images/010.jpg 785w"
+            width="785">
         </picture>
 
         <img alt="стрелка влево" aria-hidden="true" class="arrow icon white-icon" height="24" loading="lazy"
@@ -304,27 +314,27 @@
   </main>
 
   <footer id="contacts">
-    <h2 class="to-anim">
-      <span>Контактная информация</span>
+    <h2 class="footer-header opacity sec-header to-anim">
+      <span class="footer-header-text">Контактная информация</span>
     </h2>
 
-    <p class="to-anim">Евгений</p>
+    <p class="opacity to-anim" id="contact-name">Евгений</p>
 
-    <ul class="to-anim">
-      <li>
-        <span>телефон</span>
+    <ul class="to-anim" id="contacts-list">
+      <li class="contact">
+        <span class="contact-text">телефон</span>
       </li>
 
-      <li>
-        <span>телеграм</span>
+      <li class="contact">
+        <span class="contact-text">телеграм</span>
       </li>
 
-      <li>
-        <span>вайбер</span>
+      <li class="contact">
+        <span class="contact-text">вайбер</span>
       </li>
 
-      <li>
-        <span>емейл</span>
+      <li class="contact">
+        <span class="contact-text">емейл</span>
       </li>
     </ul>
   </footer>
