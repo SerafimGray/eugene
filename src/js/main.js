@@ -2,6 +2,8 @@ import { throttle } from 'lodash'
 // import for webpack
 import "../css/normalize.css"
 import "../css/_main.css"
+import '../fonts/Exo2-Regular.ttf'
+import '../fonts/TrainOne-Regular.ttf'
 import '../images/diplomas/001.jpg'
 import '../images/diplomas/002.jpg'
 import '../images/diplomas/003.jpg'

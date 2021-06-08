@@ -33,10 +33,6 @@ const CONFIG = {
       {
         patterns: [
           {
-            from: "src/fonts/",
-            to: "fonts/",
-          },
-          {
             from: "src/assets/",
             to: "",
           },
@@ -86,6 +82,16 @@ const CONFIG = {
           options: {
             name: devMode ? "[name].[ext]" : "[name].[contenthash].[ext]",
             outputPath: 'video',
+          }
+        }
+      },
+      {
+        test: /\.(ttf)$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: devMode ? "[name].[ext]" : "[name].[contenthash].[ext]",
+            outputPath: 'fonts',
           }
         }
       },
