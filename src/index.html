@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Заголовок сайта</title>
-  <meta name="description" content="Описание сайта">
+  <title>Монтаж оптического кабеля</title>
+  <meta name="description"
+    content="Перенос оптических розеток, восстановление оптического кабеля, прокладка витой пары, настройка Wi-Fi, сварка, прокладка оптоволоконного кабеля, монтаж оптических оконечных кабельных устройств в Гродно.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="">
@@ -13,10 +14,11 @@
   <meta property="og:image" content="">
 
   <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-  <meta name="theme-color" content="#fafafa">
+  <meta name="theme-color" content="#001860">
 
   <link rel="preload" href="<%= require('./fonts/Exo2-Regular.ttf').default %>" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="<%= require('./fonts/TrainOne-Regular.ttf').default %>" as="font" type="font/ttf"
@@ -91,7 +93,7 @@
     <div class="top-right wire"></div>
 
     <h1>
-      <a class="header-link" href="#top-menu">Название</a>
+      <a class="header-link" href="#top-menu">vols.grodno.by</a>
     </h1>
 
     <div class="left center wire"></div>
@@ -176,7 +178,7 @@
 
         <ul>
           <li><strong>прокладка оптоволоконного кабеля;</strong></li>
-          <li><strong>монтаж оптических оконечных кабельных устройств</strong>любого типа и сложности.</li>
+          <li><strong>монтаж оптических оконечных кабельных устройств</strong> любого типа и сложности.</li>
         </ul>
 
         <p>Все работы выполняются <strong>в кратчайшие сроки</strong> и в строгом соответствии с действующими
@@ -375,23 +377,38 @@
       <span class="footer-header-text">Контактная информация</span>
     </h2>
 
-    <p class="opacity to-anim" id="contact-name">Евгений</p>
+    <section class="opacity to-anim" id="contact-info">
+      <p class="contact-info-item">Третяк Евгений Казимирович</p>
+      <p class="contact-info-item">УНП 591945884</p>
+      <p class="contact-info-item">Р/С BY05BLBB30130591945884001001</p>
+    </section>
 
     <ul class="to-anim" id="contacts-list">
       <li class="contact">
-        <span class="contact-text">телефон</span>
+        <a class="contact-link" href="tel:+375297890285">
+          <img alt="логотип МТС" class="link-icon white-icon" height="32" loading="lazy"
+            src="<%= require('./images/icons/MTS_logo.svg').default %>" width="128" />
+
+          <span class="link-text">+375 29 789 02 85</span>
+        </a>
       </li>
 
       <li class="contact">
-        <span class="contact-text">телеграм</span>
+        <a class="contact-link" href="tel:+375297899098">
+          <img alt="логотип A1" class="link-icon white-icon" height="24" loading="lazy"
+            src="<%= require('./images/icons/A1_logo.webp').default %>" width="24" />
+
+          <span class="link-text">+375 29 789 90 98</span>
+        </a>
       </li>
 
       <li class="contact">
-        <span class="contact-text">вайбер</span>
-      </li>
+        <a class="contact-link" href="https://t.me/vols_grodno_by">
+          <img alt="логотип Telegram" class="link-icon white-icon" height="24" loading="lazy"
+            src="<%= require('./images/icons/Telegram_logo.svg').default %>" width="24" />
 
-      <li class="contact">
-        <span class="contact-text">емейл</span>
+          <span class="link-text">@vols_grodno_by</span>
+        </a>
       </li>
     </ul>
   </footer>

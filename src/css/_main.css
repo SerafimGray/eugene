@@ -474,7 +474,7 @@ h1, h2 {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: calc(10vw);
+    font-size: 8vw;
   }
 }
 
@@ -582,6 +582,10 @@ main {
   opacity: 0;
 }
 
+.no-js .to-anim.opacity {
+  opacity: 1;
+}
+
 .anim.opacity {
   animation: op 1s ease-in-out 0.3s forwards;
 }
@@ -594,6 +598,10 @@ main {
 .parallax {
   transform: translateY(200px);
   transition: all 0.01s ease-in-out;
+}
+
+.no-js .parallax {
+  transform: translateY(0);
 }
 
 #services img:nth-of-type(1) {
@@ -616,6 +624,10 @@ main {
   height: auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+.no-js #services img {
+  filter: opacity(100%);
 }
 
 @keyframes img {
@@ -766,7 +778,7 @@ main .top-right.wire {
   padding: 0 16px 50px;
 }
 
-#about .sub-header {
+#about .sec-header {
   grid-area: h;
   z-index: 6;
 }
@@ -940,19 +952,30 @@ footer {
 }
 
 .footer-header.anim::after,
-.contact::before {
+#contacts-list.anim .contact::before {
   animation: grow-height 1s ease-in-out 0.5s forwards;
 }
 
-#contact-name {
+.no-js .footer-header::after,
+.no-js .contact::before {
+  transform: scaleY(1);
+}
+
+#contact-info {
   align-self: center;
   grid-area: n;
   justify-self: center;
   padding: 0 16px;
 }
 
-#contact-name.anim {
+#contact-info.anim {
   animation: op 1s ease-in-out 1.2s forwards;
+}
+
+.contact-info-item {
+  line-height: 1.4em;
+  margin: 8px 0;
+  word-break: break-all;
 }
 
 #contacts-list {
@@ -988,6 +1011,11 @@ footer {
   animation: grow-width 1.5s ease-in-out forwards;
 }
 
+.no-js #contacts-list::before,
+.no-js .contact::after {
+  transform: scaleX(1);
+}
+
 .contact {
   color: rgb(192, 192, 192);
   cursor: pointer;
@@ -1002,32 +1030,38 @@ footer {
   color: white;
 }
 
-.contact-text {
+.contact-link {
+  align-content: center;
   box-sizing: border-box;
-  display: inline-block;
+  column-gap: 0.5em;
+  display: grid;
+  justify-content: center;
+  grid-template-areas: 
+    "img sp";
   height: 100%;
   padding: 16px;
+  white-space: nowrap;
   width: 100%;
 }
 
-#contacts-list.to-anim .contact-text {
+#contacts-list.to-anim .contact-link {
   opacity: 0;
 }
 
-#contacts-list.anim li:nth-of-type(1) .contact-text {
+.no-js #contacts-list.to-anim .contact-link {
+  opacity: 1;
+}
+
+#contacts-list.anim li:nth-of-type(1) .contact-link {
   animation: op 1s ease-in-out 1.3s forwards;
 }
 
-#contacts-list.anim li:nth-of-type(2) .contact-text {
+#contacts-list.anim li:nth-of-type(2) .contact-link {
   animation: op 1s ease-in-out 1.4s forwards;
 }
 
-#contacts-list.anim li:nth-of-type(3) .contact-text {
+#contacts-list.anim li:nth-of-type(3) .contact-link {
   animation: op 1s ease-in-out 1.5s forwards;
-}
-
-#contacts-list.anim li:nth-of-type(4) .contact-text {
-  animation: op 1s ease-in-out 1.6s forwards;
 }
 
 .contact::before {
@@ -1041,6 +1075,10 @@ footer {
   transform: scaleY(0);
   transform-origin: bottom;
   width: 1px;
+}
+
+#contacts-list li:nth-of-type(1)::before {
+  display: none;
 }
 
 .contact::after {
